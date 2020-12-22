@@ -13,7 +13,7 @@ const newFruits3 = myFruits5.filter(function(fruit){
 })
 console.log(newFruits3)
 
-const newFruits3 = myFruits5.filter(function(fruit){
-	return fruit !== "めろん"
+const newFruits4 = myFruits5.filter(function(fruit){
+	return fruit.search("ん") !== -1
 })
-console.log(newFruits3)
+console.log(newFruits4)
