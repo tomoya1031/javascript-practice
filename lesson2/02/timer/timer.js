@@ -1,7 +1,13 @@
+let finish
+
 /**
  * タイマーを開始する
  */
 function startTimer() {
+  let second = document.querySelector("#time-input").value
+
+  // スタートした時刻とタイマーの時間を足した合計が終了時刻
+  finish = Date.now() + second * 1000
 }
 
 /**
