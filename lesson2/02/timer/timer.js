@@ -2,6 +2,14 @@ let finish
 
 let intervalId
 
+let startButton = document.querySelector("#start-button")
+
+startButton.addEventListener("click", startTimer)
+
+let stopButton = document.querySelector("#stop-button")
+
+stopButton.addEventListener("click", stopTimer)
+
 /**
  * タイマーを開始する
  */
