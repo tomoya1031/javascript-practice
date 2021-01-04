@@ -27,6 +27,9 @@ function startTimer() {
  */
 function stopTimer() {
   clearInterval(intervalId)
+
+  // 残り時間をリセットする
+  setDisplay(0)
 }
 
 /**
@@ -34,6 +37,10 @@ function stopTimer() {
  */
 function checkRemainingTime() {
   let remain = finish - Date.now()
+
+  // 残り時間を表示する
+  let second = Math.floor(remain / 1000) + 1
+  setDisplay(second)
 
   // 残り時間が0以下になったらタイマーを終了する
   if (remain <= 0) {
@@ -46,4 +53,6 @@ function checkRemainingTime() {
  * 残り時間を表示する
  */
 function setDisplay(second) {
+  let countDown = document.querySelector("#count-down")
+  countDown.textContent = second
 }
