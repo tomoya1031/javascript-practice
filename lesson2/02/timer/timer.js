@@ -20,6 +20,9 @@ function startTimer() {
   finish = Date.now() + second * 1000
 
   intervalId = setInterval(checkRemainingTime, 50)
+
+  // スタートボタンを無効化する
+  startButton.disabled = true
 }
 
 /**
@@ -30,6 +33,9 @@ function stopTimer() {
 
   // 残り時間をリセットする
   setDisplay(0)
+
+  // スタートボタンを有効化する
+  startButton.disabled = false
 }
 
 /**
