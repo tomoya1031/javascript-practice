@@ -10,6 +10,10 @@ let myThings = {
 
 console.log(myThings)
 
+myThings.tea = "グリーンティー"
+
+console.log(myThings)
+
 // ドット表記
 console.log(myThings.food) // カレーライスと表示します
 
