@@ -2,6 +2,14 @@ let finish
 
 let intervalId
 
+let startButton = document.querySelector("#start-button")
+
+startButton.addEventListener("click", startTimer)
+
+let stopButton = document.querySelector("#stop-button")
+
+stopButton.addEventListener("click", stopTimer)
+
 /**
  * タイマーを開始する
  */
@@ -18,12 +26,20 @@ function startTimer() {
  * タイマーを終了する
  */
 function stopTimer() {
+  clearInterval(intervalId)
 }
 
 /**
  * 残り時間をチェックする繰り返し
  */
 function checkRemainingTime() {
+  let remain = finish - Date.now()
+
+  // 残り時間が0以下になったらタイマーを終了する
+  if (remain <= 0) {
+    stopTimer()
+    alert("時間になりました")
+  }
 }
 
 /**
