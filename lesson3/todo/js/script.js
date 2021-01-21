@@ -64,6 +64,12 @@ function sortTodos(a, b) {
   }
 }
 
+/** 編集モード */
+function editTodo(todo, type) {
+  todo.isEdit = type === "edit"
+  updateTodoList()
+}
+
 /** TodoListの描画を更新する */
 function updateTodoList() {
   let htmlStrings = ""
@@ -86,11 +92,24 @@ function updateTodoList() {
         todoEl.querySelectorAll("button").forEach(btn => {
           const type = btn.dataset.type
           btn.addEventListener("click", event => {
-            if (type.indexOf("inbox") >= 0 || type.indexOf("done") >= 0) {
+            if (type.indexOf("edit") >= 0) {
+              editTodo(todo, type)
+            } else {
               updateTodoState(todo, type)
             }
           })
         })
+        // 編集状態の場合はテキストフィールドにもイベントをバインドする
+        if (todo.isEdit) {
+          todoEl.querySelector(".input-edit").addEventListener("input", event => {
+            todo.text = event.currentTarget.value
+          })
+          todoEl
+            .querySelector(".input-priority")
+            .addEventListener("input", event => {
+              todo.priority = parseInt(event.currentTarget.value, 10)
+            })
+        }
       }
     })
 }
