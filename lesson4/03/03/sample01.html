@@ -7,7 +7,8 @@
 </head>
 <body>
   <div id="app">
-    {{ message }}
+    <div v-bind:class="{ foo: isFoo, bar: isBar }"></div>
+    <div v-bind:class="[bazClass]"></div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script src="sample01.js"></script>
