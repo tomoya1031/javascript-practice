@@ -8,10 +8,8 @@
 <body>
   <div id="app">
     <ul>
-      <li v-for="item in items">
-        {{ item }}
-      </li>
-    </ul>
+      <p>カウント: {{ count }}</p>
+    <button v-on:click="count = count + 1">カウント追加</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script src="sample01.js"></script>
